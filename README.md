@@ -24,7 +24,13 @@ python run_experiment.py --manual-prompts --models gpt-4o-mini claude-sonnet-4 -
 ### 4. Run Full Experiment
 ```bash
 # Generate prompts and test multiple models
-python run_experiment.py --models gpt-4o-mini claude-sonnet-4 gemini-2.5-pro --constitution hybrid --prompts-per-category 10
+python run_experiment.py --models gpt-4o-mini claude-sonnet-4 gemini-2.5-pro --constitution custom --prompts-per-category 10
+```
+
+### 5. Reuse Existing Prompts
+```bash
+# Load prompts from a previous run to test different models
+python run_experiment.py --prompts-file results/20250120_143052_custom_gpt-4o-mini/prompts.json --models gpt-5 claude-opus-4.1
 ```
 
 ## Project Structure
@@ -39,8 +45,9 @@ python run_experiment.py --models gpt-4o-mini claude-sonnet-4 gemini-2.5-pro --c
 
 ## Key Features
 
-- **Multiple Constitutions**: Anthropic CAI, custom, or hybrid principles
+- **Multiple Constitutions**: Basic or custom principle sets
 - **Automated Prompt Generation**: LLM-generated conflict scenarios
+- **Prompt Reuse**: Load existing prompts to test different models
 - **Multi-Model Testing**: Compare GPT-4, Claude, Gemini, Llama, etc.
 - **Automated Evaluation**: GPT-4 evaluates responses for conflict handling
 - **Rich Analysis**: Consistency scores, principle win rates, failure modes

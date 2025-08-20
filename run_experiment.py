@@ -50,10 +50,13 @@ class ConstitutionalClashExperiment:
         else:  # custom
             return get_custom_constitution()
     
-    async def generate_prompts(self, use_manual: bool = False) -> List[ConflictPrompt]:
+    async def generate_prompts(self, use_manual: bool = False, prompts_file: Optional[str] = None) -> List[ConflictPrompt]:
         """Generate or load conflict prompts"""
         
-        if use_manual:
+        if prompts_file:
+            console.print(f"[cyan]Loading prompts from {prompts_file}...[/cyan]")
+            self.prompts = PromptGenerator.load_prompts(prompts_file)
+        elif use_manual:
             console.print("[yellow]Using manual prompts...[/yellow]")
             self.prompts = get_manual_prompts(
                 self.constitution, 
@@ -71,7 +74,7 @@ class ConstitutionalClashExperiment:
             # Save prompts
             generator.save_prompts(self.prompts, self.results_dir / "prompts.json")
         
-        console.print(f"[green]✓ Generated {len(self.prompts)} prompts[/green]")
+        console.print(f"[green]✓ Loaded/Generated {len(self.prompts)} prompts[/green]")
         return self.prompts
     
     async def run_models(self, resolution_mechanism: str = "baseline") -> Dict[str, List[ModelResponse]]:
@@ -242,13 +245,13 @@ class ConstitutionalClashExperiment:
                 )
             console.print(conflict_table)
     
-    async def run_full_experiment(self, use_manual_prompts: bool = False):
+    async def run_full_experiment(self, use_manual_prompts: bool = False, prompts_file: Optional[str] = None):
         """Run the complete experiment pipeline"""
         
         console.print("[bold green]Starting Constitutional Clash Experiment[/bold green]\n")
         
         # Generate prompts
-        await self.generate_prompts(use_manual=use_manual_prompts)
+        await self.generate_prompts(use_manual=use_manual_prompts, prompts_file=prompts_file)
         
         # Run models
         for mechanism in self.config.resolution_mechanisms:
@@ -280,6 +283,8 @@ async def main():
                        help="Number of prompts per conflict category")
     parser.add_argument("--manual-prompts", action="store_true",
                        help="Use manual prompts instead of generating")
+    parser.add_argument("--prompts-file", type=str,
+                       help="Load prompts from existing JSON file (overrides --manual-prompts)")
     parser.add_argument("--output-dir", default="./results",
                        help="Output directory for results")
     parser.add_argument("--no-eval", action="store_true",
@@ -299,7 +304,7 @@ async def main():
     
     # Run experiment
     experiment = ConstitutionalClashExperiment(config)
-    await experiment.run_full_experiment(use_manual_prompts=args.manual_prompts)
+    await experiment.run_full_experiment(use_manual_prompts=args.manual_prompts, prompts_file=args.prompts_file)
 
 
 if __name__ == "__main__":

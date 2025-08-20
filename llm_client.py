@@ -75,7 +75,7 @@ class LLMClient:
         "llama-3-70b": "openrouter/meta-llama/llama-3-70b-instruct",
         "llama-3-8b": "openrouter/meta-llama/llama-3-8b-instruct",
         "mixtral": "openrouter/mistralai/mistral-medium-3.1",
-        "grok-4": "openrouter/xai/grok-4",
+        "grok-4": "openrouter/x-ai/grok-4",
         
         # Additional powerful models
         "command-r": "openrouter/cohere/command-r",

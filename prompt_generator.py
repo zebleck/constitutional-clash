@@ -28,21 +28,39 @@ class PromptGenerator:
         all_prompts = []
         
         for category_name, category_info in CONFLICT_CATEGORIES.items():
-            print(f"Generating prompts for {category_name}...")
-            
             # Find relevant principle pairs for this category
             relevant_pairs = self._match_pairs_to_category(
                 conflict_pairs, category_name, constitution
             )
             
             if not relevant_pairs:
+                print(f"Generating prompts for {category_name}... SKIPPED (no matching principle pairs)")
                 continue
             
             # Generate prompts for each severity level
-            for severity in category_info["severity_range"]:
-                num_prompts = num_per_category // len(category_info["severity_range"])
+            severity_levels = category_info["severity_range"]
+            
+            # Distribute prompts across severity levels, ensuring at least 1 if num_per_category > 0
+            if num_per_category == 0:
+                print(f"Generating prompts for {category_name}... SKIPPED (0 requested)")
+                continue
+            elif num_per_category < len(severity_levels):
+                # If fewer prompts than severity levels, generate 1 prompt for first N severities
+                prompts_per_severity = [1 if i < num_per_category else 0 for i in range(len(severity_levels))]
+            else:
+                # Distribute evenly, with remainder going to first severities
+                base_prompts = num_per_category // len(severity_levels)
+                remainder = num_per_category % len(severity_levels)
+                prompts_per_severity = [base_prompts + (1 if i < remainder else 0) for i in range(len(severity_levels))]
+            
+            category_total = sum(prompts_per_severity)
+            severity_breakdown = ", ".join([f"{sev}:{count}" for sev, count in zip(severity_levels, prompts_per_severity) if count > 0])
+            print(f"Generating prompts for {category_name}... {category_total} prompts ({severity_breakdown})")
+            
+            for severity_idx, severity in enumerate(severity_levels):
+                num_prompts = prompts_per_severity[severity_idx]
                 
-                for i in range(num_prompts):
+                for _ in range(num_prompts):
                     # Select a random pair for this prompt
                     p1_id, p2_id = random.choice(relevant_pairs)
                     p1 = next(p for p in constitution if p.id == p1_id)
@@ -60,49 +78,32 @@ class PromptGenerator:
                     
                     all_prompts.append(prompt)
         
+        print(f"✓ Generated {len(all_prompts)} prompts total across {len(CONFLICT_CATEGORIES)} categories")
         return all_prompts
     
     def _match_pairs_to_category(
         self, 
         pairs: List[tuple],
         category: str,
-        constitution: List[Principle]
+        constitution: Optional[List[Principle]] = None
     ) -> List[tuple]:
-        """Match principle pairs to conflict categories"""
+        """Match principle pairs to conflict categories - simplified approach"""
         
-        # Heuristic mapping
-        category_mappings = {
-            "privacy_vs_helpfulness": [
-                ("helpful", "protect_privacy"),
-                ("maximize_helpfulness", "protect_privacy"),
-                ("helpful", "respect_privacy"),
-            ],
-            "truth_vs_harm": [
-                ("absolute_truth", "prevent_harm"),
-                ("honest_accurate", "harmless_safety"),
-                ("absolute_truth", "harmless_safety"),
-            ],
-            "autonomy_vs_safety": [
-                ("user_autonomy", "prevent_harm"),
-                ("respect_autonomy", "harmless_safety"),
-                ("user_autonomy", "harmless_safety"),
-            ],
-            "individual_vs_collective": [
-                ("user_autonomy", "collective_benefit"),
-                ("maximize_helpfulness", "collective_benefit"),
-            ],
-            "fairness_vs_truth": [
-                ("promote_fairness", "absolute_truth"),
-                ("promote_fairness", "honest_accurate"),
-            ],
-            "transparency_vs_manipulation": [
-                ("transparency", "prevent_harm"),
-                ("transparency", "harmless_safety"),
-            ],
-        }
+        # If no pairs available, return empty
+        if not pairs:
+            return []
         
-        relevant = category_mappings.get(category, [])
-        return [p for p in relevant if p in pairs]
+        # For simplicity, just cycle through available pairs for each category
+        # This ensures every category gets at least one pair if pairs exist
+        category_names = list(CONFLICT_CATEGORIES.keys())
+        if category in category_names:
+            category_index = category_names.index(category)
+            # Use modulo to cycle through available pairs
+            pair_index = category_index % len(pairs)
+            return [pairs[pair_index]]
+        
+        # Fallback: return first available pair
+        return [pairs[0]]
     
     async def _generate_single_prompt(
         self,
@@ -241,7 +242,6 @@ def get_manual_prompts(
     """Get manually crafted prompts for testing"""
     
     prompts = []
-    conflict_pairs = get_conflict_pairs(constitution)
     
     for category, prompt_texts in MANUAL_PROMPTS.items():
         if categories and category not in categories:

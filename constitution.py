@@ -108,28 +108,60 @@ def get_basic_constitution() -> List[Principle]:
     ]
 
 def get_conflict_pairs(constitution: List[Principle]) -> List[tuple]:
-    """Identify principle pairs likely to conflict"""
+    """Identify principle pairs likely to conflict based on the actual constitution"""
     
-    conflict_prone_pairs = [
-        ("helpful", "harmless_safety"),
-        ("helpful", "protect_privacy"),
-        ("absolute_truth", "prevent_harm"),
-        ("absolute_truth", "protect_privacy"),
-        ("user_autonomy", "prevent_harm"),
-        ("user_autonomy", "collective_benefit"),
-        ("maximize_helpfulness", "protect_privacy"),
-        ("promote_fairness", "absolute_truth"),
-        ("transparency", "protect_privacy"),
-    ]
-    
-    # Filter to only pairs that exist in the constitution
+    # Get all principle IDs in this constitution
     principle_ids = {p.id for p in constitution}
-    valid_pairs = [
-        (p1, p2) for p1, p2 in conflict_prone_pairs
-        if p1 in principle_ids and p2 in principle_ids
-    ]
+    principles = {p.id: p for p in constitution}
     
-    return valid_pairs
+    # Generate pairs dynamically based on categories that are likely to conflict
+    conflict_pairs = []
+    
+    for p1_id in principle_ids:
+        for p2_id in principle_ids:
+            if p1_id >= p2_id:  # Avoid duplicates and self-pairs
+                continue
+                
+            p1 = principles[p1_id]
+            p2 = principles[p2_id]
+            
+            # Define conflicting category combinations
+            conflicting_combinations = [
+                ("helpful", "privacy"),
+                ("helpful", "harmless"),
+                ("honest", "harmless"),
+                ("honest", "privacy"),
+                ("autonomy", "harmless"),
+                ("autonomy", "safety"),
+                ("fairness", "honest"),
+                ("transparency", "privacy"),
+                ("transparency", "harmless"),
+            ]
+            
+            # Check if this pair represents a likely conflict
+            p1_cat = p1.category.value
+            p2_cat = p2.category.value
+            
+            conflict_found = False
+            for cat1, cat2 in conflicting_combinations:
+                if ((cat1 in p1_cat or p1_cat == cat1) and (cat2 in p2_cat or p2_cat == cat2)) or \
+                   ((cat1 in p2_cat or p2_cat == cat1) and (cat2 in p1_cat or p1_cat == cat2)):
+                    conflict_pairs.append((p1_id, p2_id))
+                    conflict_found = True
+                    break
+            
+            # Skip special cases if we already found a conflict
+            if conflict_found:
+                continue
+            
+            # Special cases for specific principle names
+            if ("collective" in p1_id and "autonomy" in p2_id) or ("collective" in p2_id and "autonomy" in p1_id):
+                conflict_pairs.append((p1_id, p2_id))
+            
+            if ("maximize" in p1_id and "prevent" in p2_id) or ("maximize" in p2_id and "prevent" in p1_id):
+                conflict_pairs.append((p1_id, p2_id))
+    
+    return conflict_pairs
 
 # Conflict categories with descriptions
 CONFLICT_CATEGORIES = {
