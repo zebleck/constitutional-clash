@@ -12,45 +12,99 @@ from data_structures import (
     Principle, ExperimentConfig
 )
 import json
-from tqdm.asyncio import tqdm
+from tqdm import tqdm
+from functools import wraps
+
+def retry_async(max_retries: int = 3, delay: float = 1.0, backoff: float = 2.0):
+    """Decorator for retrying async functions with exponential backoff"""
+    def decorator(func):
+        @wraps(func)
+        async def wrapper(*args, **kwargs):
+            last_error = None
+            current_delay = delay
+            
+            for attempt in range(max_retries):
+                try:
+                    return await func(*args, **kwargs)
+                except Exception as e:
+                    last_error = e
+                    if attempt < max_retries - 1:
+                        print(f"Attempt {attempt + 1} failed: {str(e)[:100]}... Retrying in {current_delay:.1f}s")
+                        await asyncio.sleep(current_delay)
+                        current_delay *= backoff
+                    else:
+                        print(f"All {max_retries} attempts failed for {func.__name__}")
+            
+            raise last_error
+        return wrapper
+    return decorator
 
 # Load environment variables
 load_dotenv()
 
-# Configure LiteLLM
-litellm.success_callback = ["langfuse"]  # Optional: for tracking
+# Configure LiteLLM for OpenRouter
 litellm.set_verbose = False  # Set True for debugging
 
+# Enable Langfuse tracking if credentials are provided
+if os.getenv("LANGFUSE_PUBLIC_KEY") and os.getenv("LANGFUSE_SECRET_KEY"):
+    litellm.success_callback = ["langfuse"]
+    litellm.failure_callback = ["langfuse"]
+    print("Langfuse tracking enabled")
+
 class LLMClient:
-    """Unified client for multiple LLM providers using LiteLLM"""
+    """Unified client for multiple LLM providers using OpenRouter via LiteLLM"""
     
-    # Model mappings for LiteLLM
+    # OpenRouter model mappings
     MODEL_MAP = {
-        "gpt-4": "gpt-4-turbo-preview",
-        "gpt-4o": "gpt-4o",
-        "gpt-3.5": "gpt-3.5-turbo",
-        "claude-3-opus": "claude-3-opus-20240229",
-        "claude-3-sonnet": "claude-3-sonnet-20240229", 
-        "claude-3-haiku": "claude-3-haiku-20240307",
-        "gemini-pro": "gemini/gemini-pro",
-        "gemini-flash": "gemini/gemini-1.5-flash",
-        "llama-3-70b": "together_ai/meta-llama/Llama-3-70b-chat-hf",
-        "mixtral": "together_ai/mistralai/Mixtral-8x7B-Instruct-v0.1"
+        # OpenAI models
+        "gpt-5": "openrouter/openai/gpt-5-chat",
+        "gpt-4": "openrouter/openai/gpt-4-turbo-preview",
+        "gpt-4-turbo": "openrouter/openai/gpt-4-turbo-preview", 
+        "gpt-4o": "openrouter/openai/gpt-4o",
+        "gpt-4o-mini": "openrouter/openai/gpt-4o-mini",
+        
+        # Anthropic models
+        "claude-sonnet-4": "openrouter/anthropic/claude-sonnet-4",
+        "claude-opus-4.1": "openrouter/anthropic/claude-opus-4.1",
+        
+        # Google models
+        "gemini-2.5-pro": "openrouter/google/gemini-2.5-pro",
+        "gemini-2.5-flash": "openrouter/google/gemini-2.5-flash",
+        
+        # Open models
+        "llama-3-70b": "openrouter/meta-llama/llama-3-70b-instruct",
+        "llama-3-8b": "openrouter/meta-llama/llama-3-8b-instruct",
+        "mixtral": "openrouter/mistralai/mistral-medium-3.1",
+        "grok-4": "openrouter/xai/grok-4",
+        
+        # Additional powerful models
+        "command-r": "openrouter/cohere/command-r",
+        "command-r-plus": "openrouter/cohere/command-r-plus",
+        "deepseek": "openrouter/deepseek/deepseek-chat",
     }
     
     def __init__(self, model_name: str, temperature: float = 0.0, max_tokens: int = 1000):
         self.model_name = model_name
-        self.model_id = self.MODEL_MAP.get(model_name, model_name)
+        self.model_id = self.MODEL_MAP.get(model_name, f"openrouter/{model_name}")
         self.temperature = temperature
         self.max_tokens = max_tokens
         self.setup_api_keys()
         
     def setup_api_keys(self):
         """Setup API keys from environment variables"""
-        # LiteLLM will automatically use these env vars:
-        # OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY, etc.
-        pass
+        # For OpenRouter, we need OPENROUTER_API_KEY
+        openrouter_key = os.getenv("OPENROUTER_API_KEY")
+        if not openrouter_key:
+            raise ValueError("OPENROUTER_API_KEY not found in environment variables")
+        
+        # LiteLLM will use this for OpenRouter models
+        os.environ["OPENROUTER_API_KEY"] = openrouter_key
+        
+        # Optional: Set your app name for OpenRouter analytics
+        app_name = os.getenv("OPENROUTER_APP_NAME", "constitutional-clash")
+        os.environ["OPENROUTER_APP_NAME"] = app_name
     
+    @retry_async(max_retries=3, delay=2.0)
     async def get_response(
         self,
         prompt: str,
@@ -73,9 +127,29 @@ class LLMClient:
                 messages=messages,
                 temperature=temperature or self.temperature,
                 max_tokens=max_tokens or self.max_tokens,
+                # OpenRouter specific headers
+                extra_headers={
+                    "HTTP-Referer": "https://github.com/constitutional-clash",
+                    "X-Title": "Constitutional Clash Experiment"
+                }
             )
             
             latency_ms = (time.time() - start_time) * 1000
+            
+            # Extract cost from OpenRouter response if available
+            cost = 0.0
+            if hasattr(response, '_hidden_params') and response._hidden_params:
+                cost = response._hidden_params.get('response_cost', 0.0)
+            elif hasattr(response, 'usage') and response.usage:
+                # Fallback to LiteLLM cost calculation
+                try:
+                    cost = litellm.completion_cost(response)
+                except:
+                    cost = 0.0
+            
+            # Ensure cost is never None
+            if cost is None:
+                cost = 0.0
             
             return ModelResponse(
                 response_id=f"{self.model_name}_{datetime.now().isoformat()}",
@@ -86,7 +160,7 @@ class LLMClient:
                 timestamp=datetime.now(),
                 latency_ms=latency_ms,
                 token_count=response.usage.total_tokens if response.usage else 0,
-                cost=litellm.completion_cost(response) if response.usage else 0.0,
+                cost=cost,
                 temperature=temperature or self.temperature,
                 system_prompt=system_prompt,
                 raw_response=response.model_dump() if hasattr(response, 'model_dump') else None
@@ -108,25 +182,33 @@ class LLMClient:
         if constitution and not system_prompt:
             system_prompt = self._build_constitution_prompt(constitution)
         
+        # Create tasks with prompt IDs attached
         tasks = []
         for prompt in prompts:
             task = self.get_response(
                 prompt=prompt.prompt_text,
                 system_prompt=system_prompt
             )
-            tasks.append(task)
+            # Store the prompt_id with the task
+            tasks.append((task, prompt.prompt_id))
         
         # Run all requests in parallel with progress bar
         responses = []
-        async with tqdm(total=len(tasks), desc=f"Getting {self.model_name} responses") as pbar:
-            for coro in asyncio.as_completed(tasks):
-                response = await coro
-                responses.append(response)
-                pbar.update(1)
+        pbar = tqdm(total=len(tasks), desc=f"Getting {self.model_name} responses")
         
-        # Match responses with prompt IDs
-        for i, response in enumerate(responses):
-            response.prompt_id = prompts[i].prompt_id
+        # Create coroutines that preserve prompt_id
+        async def run_with_id(task, prompt_id):
+            response = await task
+            response.prompt_id = prompt_id
+            return response
+        
+        # Run tasks preserving order
+        task_coros = [run_with_id(task, pid) for task, pid in tasks]
+        for coro in asyncio.as_completed(task_coros):
+            response = await coro
+            responses.append(response)
+            pbar.update(1)
+        pbar.close()
         
         return responses
     
@@ -315,7 +397,14 @@ class MultiModelRunner:
 # Test the client
 async def test_client():
     """Quick test of the LLM client"""
-    client = LLMClient("gpt-3.5")
+    
+    # Make sure OPENROUTER_API_KEY is set
+    if not os.getenv("OPENROUTER_API_KEY"):
+        print("Please set OPENROUTER_API_KEY in your .env file")
+        print("Get your API key from: https://openrouter.ai/keys")
+        return
+    
+    client = LLMClient("gpt-4o-mini")
     
     response = await client.get_response(
         prompt="What is 2+2?",
