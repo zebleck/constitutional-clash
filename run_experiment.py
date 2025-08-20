@@ -27,21 +27,25 @@ console = Console()
 class ConstitutionalClashExperiment:
     """Main experiment orchestrator"""
     
-    def __init__(self, config: ExperimentConfig):
+    def __init__(self, config: ExperimentConfig, results_dir: Optional[Path] = None):
         self.config = config
         self.constitution = self._load_constitution()
         self.prompts = []
         self.responses = {}
         self.evaluations = []
         
-        # Create timestamped results directory
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        constitution_name = config.constitution_option
-        models_str = "_".join(config.models)
-        
-        run_name = f"{timestamp}_{constitution_name}_{models_str}"
-        self.results_dir = Path(config.output_dir) / run_name
-        self.results_dir.mkdir(parents=True, exist_ok=True)
+        if results_dir:
+            # Use existing directory for resume
+            self.results_dir = results_dir
+        else:
+            # Create timestamped results directory for new experiments
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            constitution_name = config.constitution_option
+            models_str = "_".join(config.models)
+            
+            run_name = f"{timestamp}_{constitution_name}_{models_str}"
+            self.results_dir = Path(config.output_dir) / run_name
+            self.results_dir.mkdir(parents=True, exist_ok=True)
         
     def _load_constitution(self):
         """Load constitution based on config"""
@@ -108,26 +112,65 @@ class ConstitutionalClashExperiment:
         
         console.print("\n[cyan]Evaluating responses...[/cyan]")
         
-        evaluator = ResponseEvaluator(evaluation_model="gpt-4")
+        # Check for existing evaluations to resume
+        existing_evaluations = []
+        eval_file = self.results_dir / "evaluations.json"
+        if eval_file.exists():
+            try:
+                with open(eval_file, 'r') as f:
+                    eval_data = json.load(f)
+                    existing_evaluations = [EvaluationScore.model_validate(e) for e in eval_data]
+                console.print(f"[yellow]Found {len(existing_evaluations)} existing evaluations, resuming...[/yellow]")
+            except Exception as e:
+                console.print(f"[red]Could not load existing evaluations: {e}[/red]")
+        
+        evaluated_response_ids = {e.response_id for e in existing_evaluations}
+        
+        evaluator = ResponseEvaluator(evaluation_model="gpt-4o")
         
         # Create prompt lookup
         prompt_dict = {p.prompt_id: p for p in self.prompts}
         
-        all_evaluations = []
+        all_evaluations = existing_evaluations.copy()  # Start with existing
+        
         for model_name, model_responses in self.responses.items():
-            console.print(f"  Evaluating {model_name}...")
+            # Filter out already evaluated responses
+            remaining_responses = [r for r in model_responses if r.response_id not in evaluated_response_ids]
             
-            evals = await evaluator.batch_evaluate(
-                model_responses,
-                prompt_dict,
-                self.constitution,
-                show_progress=True
-            )
-            all_evaluations.extend(evals)
+            if not remaining_responses:
+                console.print(f"  {model_name}: All responses already evaluated ✓")
+                continue
+                
+            console.print(f"  Evaluating {model_name}: {len(remaining_responses)}/{len(model_responses)} remaining...")
+            
+            try:
+                evals = await evaluator.batch_evaluate(
+                    remaining_responses,
+                    prompt_dict,
+                    self.constitution,
+                    show_progress=True
+                )
+                all_evaluations.extend(evals)
+                
+                # Save progress after each model
+                with open(eval_file, 'w') as f:
+                    json.dump(
+                        [e.model_dump(mode='json') for e in all_evaluations],
+                        f, indent=2, default=str
+                    )
+                    
+            except Exception as e:
+                console.print(f"[red]Error evaluating {model_name}: {e}[/red]")
+                # Save progress even on error
+                with open(eval_file, 'w') as f:
+                    json.dump(
+                        [e.model_dump(mode='json') for e in all_evaluations],
+                        f, indent=2, default=str
+                    )
         
         self.evaluations = all_evaluations
         
-        # Save evaluations
+        # Final save
         with open(self.results_dir / "evaluations.json", 'w') as f:
             json.dump(
                 [e.model_dump(mode='json') for e in all_evaluations],
@@ -285,6 +328,8 @@ async def main():
                        help="Use manual prompts instead of generating")
     parser.add_argument("--prompts-file", type=str,
                        help="Load prompts from existing JSON file (overrides --manual-prompts)")
+    parser.add_argument("--resume-dir", type=str,
+                       help="Resume experiment from existing results directory")
     parser.add_argument("--output-dir", default="./results",
                        help="Output directory for results")
     parser.add_argument("--no-eval", action="store_true",
@@ -292,7 +337,62 @@ async def main():
     
     args = parser.parse_args()
     
-    # Create config
+    # Handle resume functionality
+    if args.resume_dir:
+        from pathlib import Path
+        resume_path = Path(args.resume_dir)
+        if not resume_path.exists():
+            console.print(f"[red]Resume directory does not exist: {resume_path}[/red]")
+            return
+        
+        # Load config from existing results
+        console.print(f"[yellow]Resuming experiment from {resume_path}[/yellow]")
+        
+        # Create a simplified config for resuming
+        config = ExperimentConfig(
+            constitution_option=args.constitution,
+            num_prompts_per_category=args.prompts_per_category,
+            models=args.models,
+            resolution_mechanisms=["baseline"],
+            auto_evaluate=not args.no_eval,
+            output_dir=str(resume_path.parent)
+        )
+        
+        # Create experiment with specific results directory
+        experiment = ConstitutionalClashExperiment(config, results_dir=resume_path)
+        
+        # Load existing data  
+        from prompt_generator import PromptGenerator
+        prompts_file = resume_path / "prompts.json"
+        if prompts_file.exists():
+            experiment.prompts = PromptGenerator.load_prompts(str(prompts_file))
+            console.print(f"[green]Loaded {len(experiment.prompts)} existing prompts[/green]")
+        
+        # Load existing responses
+        responses_file = resume_path / "responses_baseline.json"
+        if responses_file.exists():
+            with open(responses_file, 'r') as f:
+                response_data = json.load(f)
+                responses = [ModelResponse.model_validate(r) for r in response_data]
+            
+            # Group by model
+            experiment.responses = {}
+            for response in responses:
+                if response.model_name not in experiment.responses:
+                    experiment.responses[response.model_name] = []
+                experiment.responses[response.model_name].append(response)
+            
+            console.print(f"[green]Loaded {len(responses)} existing responses[/green]")
+        
+        # Continue with evaluation only
+        if config.auto_evaluate:
+            await experiment.evaluate_responses()
+            experiment.analyze_results()
+        
+        console.print(f"[green]✓ Resumed experiment complete![/green]")
+        return
+    
+    # Create config for new experiment
     config = ExperimentConfig(
         constitution_option=args.constitution,
         num_prompts_per_category=args.prompts_per_category,

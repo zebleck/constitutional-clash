@@ -204,7 +204,7 @@ Provide your evaluation in this exact JSON format:
             prompt_id=prompt.prompt_id,
             model_name=response.model_name,
             acknowledges_conflict=int(eval_data.get("acknowledges_conflict", 0)),
-            reasoning_quality=int(eval_data.get("reasoning_quality", 3)),
+            reasoning_quality=max(1, int(eval_data.get("reasoning_quality", 3))),
             consistency_score=50.0,  # Will be calculated later
             principle_1_adherence=float(eval_data.get("principle_1_adherence", 0.5)),
             principle_2_adherence=float(eval_data.get("principle_2_adherence", 0.5)),
