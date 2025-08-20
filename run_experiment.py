@@ -348,11 +348,22 @@ async def main():
         # Load config from existing results
         console.print(f"[yellow]Resuming experiment from {resume_path}[/yellow]")
         
+        # Auto-detect models from existing data if not specified
+        actual_models = args.models
+        if actual_models == ["gpt-4o-mini", "claude-sonnet-4"]:  # Default values
+            # Check existing responses to get actual models
+            responses_file = resume_path / "responses_baseline.json"
+            if responses_file.exists():
+                with open(responses_file, 'r') as f:
+                    response_data = json.load(f)
+                actual_models = list(set(r["model_name"] for r in response_data))
+                console.print(f"[blue]Auto-detected models from existing data: {actual_models}[/blue]")
+        
         # Create a simplified config for resuming
         config = ExperimentConfig(
             constitution_option=args.constitution,
             num_prompts_per_category=args.prompts_per_category,
-            models=args.models,
+            models=actual_models,
             resolution_mechanisms=["baseline"],
             auto_evaluate=not args.no_eval,
             output_dir=str(resume_path.parent)
