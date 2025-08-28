@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.5.16)  28 AUG 2025 23:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.5.16)  29 AUG 2025 01:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -729,23 +729,23 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 (./main_short.aux)
 \openout1 = `main_short.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 59
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 52
 .
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -830,10 +830,10 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main_short.bbl' found.
 
 (./main_short.bbl)
-Package biblatex Info: Reference section=0 on input line 59.
-Package biblatex Info: Reference segment=0 on input line 59.
+Package biblatex Info: Reference section=0 on input line 52.
+Package biblatex Info: Reference segment=0 on input line 52.
 \AtBeginShipoutBox=\box104
-Package hyperref Info: Link coloring ON on input line 59.
+Package hyperref Info: Link coloring ON on input line 52.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -846,22 +846,22 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count431
 )
-LaTeX Info: Redefining \ref on input line 59.
-LaTeX Info: Redefining \pageref on input line 59.
-LaTeX Info: Redefining \nameref on input line 59.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
 
 (./main_short.out) (./main_short.out)
 \@outlinefile=\write4
 \openout4 = `main_short.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 59.
+LaTeX Info: Redefining \microtypecontext on input line 52.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 59.
+LaTeX Info: Redefining \showhyphens on input line 52.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -873,7 +873,7 @@ File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 62.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 55.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -882,7 +882,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 62.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 55.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -891,7 +891,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 64
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 57
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
@@ -903,45 +903,70 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<principle_win_rates.png, id=58, 854.2314pt x 420.8523pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+<principle_win_rates.png, id=188, 854.2314pt x 420.8523pt>
 File: principle_win_rates.png Graphic file (type png)
 <use principle_win_rates.png>
-Package pdftex.def Info: principle_win_rates.png  used on input line 142.
+Package pdftex.def Info: principle_win_rates.png  used on input line 178.
 (pdftex.def)             Requested size: 385.50183pt x 189.9212pt.
- [2] [3 <./principle_win_rates.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 162.
- [4
+<consistency_heatmap.png, id=190, 822.9144pt x 566.115pt>
+File: consistency_heatmap.png Graphic file (type png)
+<use consistency_heatmap.png>
+Package pdftex.def Info: consistency_heatmap.png  used on input line 185.
+(pdftex.def)             Requested size: 433.68497pt x 298.34644pt.
+ [4 <./principle_win_rates.png>]
+[5 <./consistency_heatmap.png>] [6]
+<model_comparison_radar.png, id=210, 707.7642pt x 592.8549pt>
+File: model_comparison_radar.png Graphic file (type png)
+<use model_comparison_radar.png>
+Package pdftex.def Info: model_comparison_radar.png  used on input line 267.
+(pdftex.def)             Requested size: 409.59708pt x 343.09619pt.
+ [7]
+<model_rankings.png, id=216, 855.6768pt x 566.115pt>
+File: model_rankings.png Graphic file (type png)
+<use model_rankings.png>
+Package pdftex.def Info: model_rankings.png  used on input line 274.
+(pdftex.def)             Requested size: 385.50183pt x 255.05173pt.
+ [8 <./model_comparison_radar.png> <./model_rankings.png>]
+Overfull \hbox (8.17639pt too wide) in paragraph at lines 284--285
+[]\T1/ptm/b/n/10 Anthropic Mod-els: \T1/ptm/m/n/10 (-20) Claude mod-els showed 
+the great-est vari-a-tion in con-sti-tu-tional ad-her-ence, with \T1/pcr/m/n/10
+ Claude Sonnet-4
+ []
+
+[9] [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 354.
+ [11
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 162.
-
-(./main_short.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 162.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 162.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 354.
+ (./main_short.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 354.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 354.
 Package rerunfilecheck Info: File `main_short.out' has not changed.
-(rerunfilecheck)             Checksum: D212A6212C5C25AF7146B33CB158ED93;589.
+(rerunfilecheck)             Checksum: 7C1B766848BEDB9D4DD20AF99C4BBCB7;2860.
 Package logreq Info: Writing requests to 'main_short.run.xml'.
 \openout1 = `main_short.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 18161 strings out of 481239
- 306635 string characters out of 5920377
- 998419 words of memory out of 5000000
- 33018 multiletter control sequences out of 15000+600000
- 581008 words of font info for 154 fonts, out of 8000000 for 9000
+ 18357 strings out of 481239
+ 309854 string characters out of 5920377
+ 999468 words of memory out of 5000000
+ 33096 multiletter control sequences out of 15000+600000
+ 584779 words of font info for 201 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,10n,46p,1155b,1399s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.
-pfb>
-Output written on main_short.pdf (4 pages, 264891 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main_short.pdf (11 pages, 1259151 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
- 29262 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 279 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 29485 words of extra memory for PDF output out of 29859 (max. 10000000)
 

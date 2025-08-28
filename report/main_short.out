@@ -1,9 +1,35 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Methodology}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Constitutional Framework and Conflict Taxonomy}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Prompt Generation, Model Selection, and Evaluation}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Results}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{Overall Performance and Consistency}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.2}{Principle Adherence and Refusal Rates}{section.3}% 7
-\BOOKMARK [1][-]{section.4}{Discussion}{}% 8
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 9
+\BOOKMARK [1][-]{section.2}{Related Work and Research Context}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Constitutional AI and Principle-Based Training}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Ethical Reasoning and Moral Dilemmas in AI}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Philosophical Foundations and Human Moral Reasoning}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Research Gap and Contribution}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Methodology}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Constitutional Framework and Conflict Taxonomy}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Automated Prompt Generation Pipeline}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Model Selection and Technical Implementation}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.4}{Comprehensive Evaluation Framework}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{Results}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Overall Performance and Consistency}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{Principle Adherence Patterns and Systematic Biases}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Model-Specific Refusal Strategies and Response Patterns}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.4}{Conflict Category Difficulty and Severity Analysis}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.5}{Illustrative Case Studies}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.6}{Statistical Validation}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.7}{Cross-Model Consistency Patterns and Convergent Solutions}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.8}{Conflict Pair Analysis and Difficulty Gradients}{section.4}% 20
+\BOOKMARK [1][-]{section.5}{Analysis}{}% 21
+\BOOKMARK [2][-]{subsection.5.1}{The Consistency-Quality Trade-off: A Fundamental Tension}{section.5}% 22
+\BOOKMARK [2][-]{subsection.5.2}{Constitutional Adherence and Value Hierarchy Learning}{section.5}% 23
+\BOOKMARK [2][-]{subsection.5.3}{Model Family Strategies and Training Philosophy Impacts}{section.5}% 24
+\BOOKMARK [2][-]{subsection.5.4}{Model-Specific Vulnerability Patterns}{section.5}% 25
+\BOOKMARK [2][-]{subsection.5.5}{Category-Specific Patterns}{section.5}% 26
+\BOOKMARK [1][-]{section.6}{Discussion}{}% 27
+\BOOKMARK [2][-]{subsection.6.1}{Implications for AI Safety and Deployment}{section.6}% 28
+\BOOKMARK [2][-]{subsection.6.2}{Limitations of Current Constitutional AI Approaches}{section.6}% 29
+\BOOKMARK [2][-]{subsection.6.3}{Future Directions and Methodological Extensions}{section.6}% 30
+\BOOKMARK [1][-]{section.7}{Limitations and Validity Considerations}{}% 31
+\BOOKMARK [2][-]{subsection.7.1}{Key Limitations}{section.7}% 32
+\BOOKMARK [2][-]{subsection.7.2}{Scope and Generalizability}{section.7}% 33
+\BOOKMARK [2][-]{subsection.7.3}{Interpretation Guidelines}{section.7}% 34
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 35

@@ -101,8 +101,8 @@ class ResultsVisualizer:
                     principle_wins[principle] = []
                 principle_wins[principle].append(win_rate)
         
-        # Calculate average win rates
-        avg_wins = {p: np.mean(rates) for p, rates in principle_wins.items()}
+        # Calculate average win rates and convert to percentages
+        avg_wins = {p: np.mean(rates) * 100 for p, rates in principle_wins.items()}
         
         # Create bar chart
         plt.figure(figsize=(12, 6))
@@ -120,8 +120,8 @@ class ResultsVisualizer:
         plt.xlabel('Principle', fontsize=12)
         plt.ylabel('Win Rate', fontsize=12)
         plt.xticks(rotation=45, ha='right')
-        plt.ylim(0, 1.0)
-        plt.axhline(y=0.5, color='red', linestyle='--', alpha=0.5, label='50% baseline')
+        plt.ylim(0, 100)
+        plt.axhline(y=50, color='red', linestyle='--', alpha=0.5, label='50% baseline')
         plt.legend()
         plt.tight_layout()
         plt.savefig(self.data_dir / 'principle_win_rates.png', dpi=300, bbox_inches='tight')
