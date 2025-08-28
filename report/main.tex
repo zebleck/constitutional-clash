@@ -14,9 +14,9 @@
 \usepackage{longtable}
 
 % Page layout
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.8in]{geometry}
 \usepackage{setspace}
-\onehalfspacing
+\singlespacing
 
 % Bibliography and citations
 \usepackage[style=authoryear,backend=biber,natbib=true]{biblatex}
@@ -89,13 +89,7 @@
 \maketitle
 
 \begin{abstract}
-Large language models (LLMs) are increasingly deployed in applications requiring adherence to ethical principles and safety guidelines. However, real-world scenarios often present conflicts between these principles, forcing models to make difficult trade-offs. This paper presents the first comprehensive empirical analysis of how major LLMs handle constitutional principle conflicts through systematic evaluation across diverse scenarios.
-
-We evaluated 7 state-of-the-art LLMs (\model{GPT-5}, \model{GPT-4o}, \model{Gemini 2.5 Pro}, \model{Gemini 2.5 Flash}, \model{Claude Sonnet-4}, \model{Claude Opus-4.1}, and \model{Grok-4}) across 60 carefully designed conflict scenarios spanning 6 categories: privacy vs. transparency, safety vs. autonomy, fairness vs. efficiency, accuracy vs. harm prevention, individual rights vs. collective good, and free speech vs. content moderation. Our evaluation encompassed 420 total model responses, assessed for consistency, reasoning quality, and adherence patterns.
-
-Our findings reveal significant inconsistencies in how LLMs navigate principle conflicts. \model{GPT-4o} demonstrated the highest consistency (88.8\%), while \model{Grok-4} provided the highest quality reasoning (4.87/5). Models exhibited distinct ``principle preferences,'' with refusal rates varying substantially across models (32-43\%). Notably, all models showed category-specific biases, with some principles systematically favored over others depending on the conflict domain.
-
-These results highlight critical gaps in current AI alignment approaches and underscore the need for more robust frameworks for handling ethical trade-offs. Our work provides a foundation for developing more consistent and transparent decision-making processes in AI systems deployed in ethically complex environments.
+We present an empirical analysis of how seven state-of-the-art LLMs handle conflicts between constitutional principles. Testing 60 scenarios across 6 conflict categories (privacy vs. helpfulness, truth vs. harm, autonomy vs. safety, individual vs. collective, fairness vs. truth, transparency vs. manipulation), we find significant inconsistencies in model behavior. GPT-4o achieved highest consistency (88.8\%) while Grok-4 provided best reasoning quality (4.87/5). Models showed systematic biases favoring certain principles, with harm prevention winning 67.3\% of conflicts. These findings reveal critical gaps in current AI alignment approaches.
 \end{abstract}
 
 \section{Introduction}
@@ -142,39 +136,19 @@ This paper presents the first large-scale empirical study systematically compari
 
 These findings have immediate implications for AI safety research and deployment practices. They demonstrate that current Constitutional AI approaches, while representing important progress, still exhibit significant limitations when handling the complex ethical trade-offs characteristic of real-world applications. Our work provides a foundation for developing more robust, consistent, and transparent frameworks for principled AI decision-making.
 
-The remainder of this paper is organized as follows: Section 2 reviews related work in Constitutional AI and principle-based alignment; Section 3 details our experimental methodology and evaluation framework; Section 4 presents comprehensive results across all research questions; Section 5 discusses implications and limitations; and Section 6 concludes with directions for future research.
+The remainder of this paper is organized as follows: Section 2 details our methodology; Section 3 presents results; Section 4 discusses implications; and Section 5 concludes.
 
-\section{Related Work}
+\section{Methodology}
 
-This work builds upon several interconnected research areas that have emerged as AI systems have become more capable and widely deployed. We organize our review around five key areas that directly inform our empirical study of principle conflicts in large language models.
+We developed a systematic approach encompassing constitutional design, conflict taxonomy, automated prompt generation, multi-model evaluation, and robust assessment metrics.
 
-\subsection{Constitutional AI and Training Methodologies}
+\subsection{Constitutional Framework}
 
-Constitutional AI (CAI) represents a significant evolution in AI alignment methodology, moving beyond simple safety filtering to embed ethical reasoning directly into model behavior. \citet{anthropic2022constitutional} introduced the foundational approach where models are trained to critique and revise their own responses according to a set of constitutional principles, creating a self-supervised learning loop that internalizes ethical considerations. This methodology builds upon Reinforcement Learning from Human Feedback (RLHF) \citep{christiano2017deep, stiennon2020learning} but addresses scalability concerns by reducing dependence on human oversight during training.
+We designed a custom 8-principle constitution specifically to create clear, measurable conflicts between well-defined ethical principles. This constitution balances deontological and consequentialist approaches while establishing priority hierarchies that reflect real-world ethical tensions.
 
-\citet{bai2022constitutional} demonstrated that constitutional training can effectively reduce harmful outputs while maintaining model helpfulness, showing improvements across multiple safety benchmarks. However, their evaluation focused primarily on individual principle adherence rather than scenarios where principles conflict. Similarly, \citet{askell2021general} explored helpfulness and harmlessness trade-offs, but did not systematically examine how models navigate explicit conflicts between well-defined constitutional principles.
+\subsubsection{Principle Design}
 
-Recent work has extended constitutional approaches beyond safety to include factuality \citep{menick2022teaching}, honesty \citep{evans2021truthful}, and transparency \citep{christiano2021eliciting}. However, these advances have largely treated principles in isolation, assuming that adherence to individual principles will compose into coherent behavior. Our work addresses this gap by examining what happens when such composition fails due to irreconcilable conflicts.
-
-The limitations of current constitutional training become particularly apparent when principles conflict. \citet{ganguli2022red} noted that even well-trained models exhibit inconsistent behavior in edge cases, though they did not systematically study principle conflicts. \citet{ouyang2022training} showed that RLHF-trained models can exhibit reward hacking behaviors when faced with ambiguous objectives, suggesting that principle conflicts may represent a similar challenge for constitutional approaches.
-
-\subsection{AI Alignment and the Value Loading Problem}
-
-The broader challenge of AI alignment provides crucial context for understanding principle conflicts. \citet{russell2019human} articulates the fundamental difficulty of specifying human values computationally, arguing that the traditional approach of optimizing fixed objective functions is inherently brittle when dealing with complex human values. This \textit{value specification problem} directly relates to principle conflicts: even if individual principles are well-specified, the meta-principles governing trade-offs between them remain unclear.
-
-\citet{yudkowsky2016ai} introduced the \textit{orthogonality thesis}, suggesting that intelligence and goals are orthogonal dimensions, meaning that highly capable systems could pursue arbitrary objectives. While constitutional training aims to align objectives with human values, principle conflicts reveal that ``human values'' themselves are not monolithic. \citet{soares2015corrigibility} and \citet{taylor2016quantilizers} propose technical approaches to this problem, but these focus on single-objective optimization rather than multi-objective trade-offs.
-
-The concept of \textit{instrumental convergence} \citep{omohundro2008basic, bostrom2014superintelligence} suggests that sufficiently advanced AI systems will converge on certain instrumental goals regardless of their terminal objectives. However, when constitutional principles conflict, models must choose between potentially instrumental goals (e.g., truthfulness vs. harm prevention), making this convergence less predictable.
-
-Recent work in AI alignment has increasingly recognized the importance of value pluralism. \citet{gabriel2020artificial} argues that moral disagreement is a fundamental feature of human societies that AI systems must navigate rather than resolve. \citet{hendrycks2023overview} surveys various approaches to building aligned systems, noting that most current methods assume value consensus where none may exist. Our empirical study directly addresses this limitation by examining how models handle explicit value conflicts.
-
-\subsection{Ethical Frameworks and Multi-Objective Optimization}
-
-The challenge of principle conflicts in AI systems reflects deeper questions in moral philosophy about how to resolve ethical dilemmas. \citet{rawls1971theory} and \citet{nozick1974anarchy} present foundational but conflicting perspectives on individual rights versus collective welfare, a tension directly relevant to several of our conflict categories. Similarly, the distinction between deontological ethics \citep{kant1785groundwork} and consequentialism \citep{mill1863utilitarianism} maps onto conflicts between rule-based principles and outcome-focused considerations.
-
-In AI systems, these philosophical tensions manifest as computational challenges. \citet{awad2018moral} studied human preferences in moral dilemmas through the Moral Machine Experiment, revealing significant variation in ethical preferences across cultures and contexts. This variation suggests that there may be no universal resolution to many principle conflicts, making consistency in AI behavior both more important and more challenging to achieve.
-
-\citet{winfield2019machine} propose that AI systems should incorporate multiple ethical frameworks rather than committing to a single approach, but they provide limited guidance on how to resolve conflicts between frameworks. \citet{wallach2008moral} survey various approaches to machine ethics, noting that most focus on implementing single ethical theories rather than navigating conflicts between them.
+Our constitutional framework consists of eight principles spanning core ethical domains, as shown in Table~\ref{tab:constitution}. Each principle includes explicit priority levels (1-5, where 1 is highest priority) and classification as either deontological (rule-based) or consequentialist (outcome-based)., noting that most focus on implementing single ethical theories rather than navigating conflicts between them.
 
 Recent work in multi-objective optimization provides technical approaches to handling trade-offs, but these typically assume that objectives can be quantified and compared \citep{deb2001multi, zhang2007moea}. Constitutional principles often resist such quantification, particularly when they involve qualitatively different values like privacy versus transparency.
 
@@ -212,9 +186,6 @@ Most existing work assumes that adherence to individual principles will compose 
 
 This contribution is particularly timely given the rapid deployment of LLMs in high-stakes applications where ethical decision-making directly impacts human welfare. Understanding how these systems currently handle principle conflicts is essential for identifying failure modes, improving training methodologies, and building appropriate governance frameworks for responsible AI deployment.
 
-\section{Methodology}
-
-This section describes our comprehensive experimental framework for evaluating how large language models handle constitutional principle conflicts. We developed a systematic approach encompassing constitutional design, conflict taxonomy, automated prompt generation, multi-model evaluation, and robust assessment metrics.
 
 \subsection{Constitutional Framework}
 
@@ -773,7 +744,7 @@ We thank the anonymous reviewers for their valuable feedback and suggestions. Th
 
 \appendix
 
-\section{Sample Conflict Prompts}
+\end{document}
 \label{app:prompts}
 
 This appendix presents representative examples from each of the six conflict categories used in our evaluation. These prompts were generated using GPT-4o-mini with careful attention to creating realistic user requests that generate genuine conflicts between constitutional principles.
