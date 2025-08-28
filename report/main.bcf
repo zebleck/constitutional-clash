@@ -2184,25 +2184,17 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">anthropic2022constitutional</bcf:citekey>
-    <bcf:citekey order="1">bai2022constitutional</bcf:citekey>
     <bcf:citekey order="2">kenton2021alignment</bcf:citekey>
-    <bcf:citekey order="3">deb2001multi</bcf:citekey>
-    <bcf:citekey order="3">zhang2007moea</bcf:citekey>
-    <bcf:citekey order="4">barocas2017fairness</bcf:citekey>
-    <bcf:citekey order="5">mitchell2021algorithmic</bcf:citekey>
-    <bcf:citekey order="6">hendrycks2020measuring</bcf:citekey>
-    <bcf:citekey order="7">srivastava2022beyond</bcf:citekey>
-    <bcf:citekey order="8">rae2021scaling</bcf:citekey>
-    <bcf:citekey order="9">gehman2020realtoxicityprompts</bcf:citekey>
-    <bcf:citekey order="10">jin2022moral</bcf:citekey>
-    <bcf:citekey order="11">emelin2021moral</bcf:citekey>
-    <bcf:citekey order="12">aroyo2015truth</bcf:citekey>
-    <bcf:citekey order="13">floridi2019translating</bcf:citekey>
-    <bcf:citekey order="14">jobin2019global</bcf:citekey>
-    <bcf:citekey order="15">bonnefon2016social</bcf:citekey>
-    <bcf:citekey order="16">winfield2021review</bcf:citekey>
-    <bcf:citekey order="17">greene2001emotional</bcf:citekey>
-    <bcf:citekey order="18">haidt2001emotional</bcf:citekey>
+    <bcf:citekey order="3">anthropic2022constitutional</bcf:citekey>
+    <bcf:citekey order="4">hendrycks2020measuring</bcf:citekey>
+    <bcf:citekey order="5">srivastava2022beyond</bcf:citekey>
+    <bcf:citekey order="6">gehman2020realtoxicityprompts</bcf:citekey>
+    <bcf:citekey order="7">jin2022moral</bcf:citekey>
+    <bcf:citekey order="8">emelin2021moral</bcf:citekey>
+    <bcf:citekey order="9">floridi2019translating</bcf:citekey>
+    <bcf:citekey order="10">jobin2019global</bcf:citekey>
+    <bcf:citekey order="11">bonnefon2016social</bcf:citekey>
+    <bcf:citekey order="12">anthropic2022constitutional</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
@@ -2234,4 +2226,13 @@
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="nyt/global//global/global"
+                type="entry"
+                sortingtemplatename="nyt"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global">
+  </bcf:datalist>
 </bcf:controlfile>

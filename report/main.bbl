@@ -19,74 +19,10 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
-    \entry{aroyo2015truth}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=4f33bfb35e2adfadad1334eb462deb05}{%
-           family={Aroyo},
-           familyi={A\bibinitperiod},
-           given={Lora},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=596988ccd9571ee1de402da139cbb368}{%
-           family={Welty},
-           familyi={W\bibinitperiod},
-           given={Chris},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{d6f01789791f4d565e2e3c32096cba1f}
-      \strng{fullhash}{d6f01789791f4d565e2e3c32096cba1f}
-      \strng{bibnamehash}{d6f01789791f4d565e2e3c32096cba1f}
-      \strng{authorbibnamehash}{d6f01789791f4d565e2e3c32096cba1f}
-      \strng{authornamehash}{d6f01789791f4d565e2e3c32096cba1f}
-      \strng{authorfullhash}{d6f01789791f4d565e2e3c32096cba1f}
-      \field{sortinit}{A}
-      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{AI Magazine}
-      \field{number}{1}
-      \field{title}{Truth is a lie: Crowd truth and the seven myths of human annotation}
-      \field{volume}{36}
-      \field{year}{2015}
-      \field{pages}{15\bibrangedash 24}
-      \range{pages}{10}
-    \endentry
-    \entry{bai2022constitutional}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=9bf1729ae263e793ab902ed7fe6678da}{%
-           family={Bai},
-           familyi={B\bibinitperiod},
-           given={Yuntao},
-           giveni={Y\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{68a232b71f6c92d764e1477740607b54}
-      \strng{fullhash}{68a232b71f6c92d764e1477740607b54}
-      \strng{bibnamehash}{68a232b71f6c92d764e1477740607b54}
-      \strng{authorbibnamehash}{68a232b71f6c92d764e1477740607b54}
-      \strng{authornamehash}{68a232b71f6c92d764e1477740607b54}
-      \strng{authorfullhash}{68a232b71f6c92d764e1477740607b54}
-      \field{extraname}{1}
-      \field{sortinit}{B}
-      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
-      \field{extradate}{1}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:2212.08073}
-      \field{title}{Constitutional AI: Harmlessness from AI feedback}
-      \field{year}{2022}
-    \endentry
     \entry{anthropic2022constitutional}{article}{}
       \true{moreauthor}
       \true{morelabelname}
-      \name{author}{10}{ul=1}{%
+      \name{author}{10}{}{%
         {{un=0,uniquepart=base,hash=9bf1729ae263e793ab902ed7fe6678da}{%
            family={Bai},
            familyi={B\bibinitperiod},
@@ -154,10 +90,8 @@
       \strng{authorbibnamehash}{68a232b71f6c92d764e1477740607b54}
       \strng{authornamehash}{68a232b71f6c92d764e1477740607b54}
       \strng{authorfullhash}{0dc4dd661624469bdcf9df35031a6edb}
-      \field{extraname}{2}
       \field{sortinit}{B}
       \field{sortinithash}{8de16967003c7207dae369d874f1456e}
-      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
@@ -165,43 +99,6 @@
       \field{journaltitle}{arXiv preprint arXiv:2212.08073}
       \field{title}{Constitutional AI: Harmlessness from AI feedback}
       \field{year}{2022}
-    \endentry
-    \entry{barocas2017fairness}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=cb55e045fbd37698b0b60a60b567ab83}{%
-           family={Barocas},
-           familyi={B\bibinitperiod},
-           given={Solon},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e771760b6d0d33f8b4dfd907d8d57ac2}{%
-           family={Hardt},
-           familyi={H\bibinitperiod},
-           given={Moritz},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=95dc795a2be14c50fb6a924acc135ff8}{%
-           family={Narayanan},
-           familyi={N\bibinitperiod},
-           given={Arvind},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{f6daa5fbad9e518e58da0fbc508936ba}
-      \strng{fullhash}{f6daa5fbad9e518e58da0fbc508936ba}
-      \strng{bibnamehash}{f6daa5fbad9e518e58da0fbc508936ba}
-      \strng{authorbibnamehash}{f6daa5fbad9e518e58da0fbc508936ba}
-      \strng{authornamehash}{f6daa5fbad9e518e58da0fbc508936ba}
-      \strng{authorfullhash}{f6daa5fbad9e518e58da0fbc508936ba}
-      \field{sortinit}{B}
-      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{NIPS Tutorial}
-      \field{title}{Fairness in machine learning}
-      \field{year}{2017}
     \endentry
     \entry{bonnefon2016social}{article}{}
       \name{author}{3}{}{%
@@ -243,33 +140,6 @@
       \field{year}{2016}
       \field{pages}{1573\bibrangedash 1576}
       \range{pages}{4}
-    \endentry
-    \entry{deb2001multi}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=b11d1da0cc2920eef235d484e6b858ef}{%
-           family={Deb},
-           familyi={D\bibinitperiod},
-           given={Kalyanmoy},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {John Wiley \& Sons}%
-      }
-      \strng{namehash}{b11d1da0cc2920eef235d484e6b858ef}
-      \strng{fullhash}{b11d1da0cc2920eef235d484e6b858ef}
-      \strng{bibnamehash}{b11d1da0cc2920eef235d484e6b858ef}
-      \strng{authorbibnamehash}{b11d1da0cc2920eef235d484e6b858ef}
-      \strng{authornamehash}{b11d1da0cc2920eef235d484e6b858ef}
-      \strng{authorfullhash}{b11d1da0cc2920eef235d484e6b858ef}
-      \field{sortinit}{D}
-      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Multi-objective optimization using evolutionary algorithms}
-      \field{year}{2001}
     \endentry
     \entry{emelin2021moral}{article}{}
       \name{author}{5}{}{%
@@ -457,88 +327,6 @@
       \field{year}{2020}
       \field{pages}{3356\bibrangedash 3369}
       \range{pages}{14}
-    \endentry
-    \entry{greene2001emotional}{article}{}
-      \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=c7312723f038e3ddf2d82275c881b315}{%
-           family={Greene},
-           familyi={G\bibinitperiod},
-           given={Joshua\bibnamedelima D},
-           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=25b4a76cb9f2908a59911888ea16e733}{%
-           family={Sommerville},
-           familyi={S\bibinitperiod},
-           given={R\bibnamedelima Brian},
-           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=02dfa292fca7d458005fca18bc6e7140}{%
-           family={Nystrom},
-           familyi={N\bibinitperiod},
-           given={Leigh\bibnamedelima E},
-           giveni={L\bibinitperiod\bibinitdelim E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=fc886b2341a1510fa64a8c9a704e15e1}{%
-           family={Darley},
-           familyi={D\bibinitperiod},
-           given={John\bibnamedelima M},
-           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=74f9e2bf1a38596826af4f725fec39ed}{%
-           family={Cohen},
-           familyi={C\bibinitperiod},
-           given={Jonathan\bibnamedelima D},
-           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{dd7e3e951caa86c782ef5b29bee01a4e}
-      \strng{fullhash}{6e61e7443060eacf6813452b421481fc}
-      \strng{bibnamehash}{dd7e3e951caa86c782ef5b29bee01a4e}
-      \strng{authorbibnamehash}{dd7e3e951caa86c782ef5b29bee01a4e}
-      \strng{authornamehash}{dd7e3e951caa86c782ef5b29bee01a4e}
-      \strng{authorfullhash}{6e61e7443060eacf6813452b421481fc}
-      \field{sortinit}{G}
-      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Science}
-      \field{number}{5537}
-      \field{title}{An fMRI investigation of emotional engagement in moral judgment}
-      \field{volume}{293}
-      \field{year}{2001}
-      \field{pages}{2105\bibrangedash 2108}
-      \range{pages}{4}
-    \endentry
-    \entry{haidt2001emotional}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=4ad5db1a3e5b2a00eb7b9f09db549ab6}{%
-           family={Haidt},
-           familyi={H\bibinitperiod},
-           given={Jonathan},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{4ad5db1a3e5b2a00eb7b9f09db549ab6}
-      \strng{fullhash}{4ad5db1a3e5b2a00eb7b9f09db549ab6}
-      \strng{bibnamehash}{4ad5db1a3e5b2a00eb7b9f09db549ab6}
-      \strng{authorbibnamehash}{4ad5db1a3e5b2a00eb7b9f09db549ab6}
-      \strng{authornamehash}{4ad5db1a3e5b2a00eb7b9f09db549ab6}
-      \strng{authorfullhash}{4ad5db1a3e5b2a00eb7b9f09db549ab6}
-      \field{sortinit}{H}
-      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Psychological review}
-      \field{number}{4}
-      \field{title}{The emotional dog and its rational tail: a social intuitionist approach to moral judgment}
-      \field{volume}{108}
-      \field{year}{2001}
-      \field{pages}{814}
-      \range{pages}{1}
     \endentry
     \entry{hendrycks2020measuring}{article}{}
       \name{author}{7}{}{%
@@ -757,138 +545,6 @@
       \field{title}{Alignment of language agents}
       \field{year}{2021}
     \endentry
-    \entry{mitchell2021algorithmic}{article}{}
-      \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=c4a65890b8723b2dddd200073eb74ba0}{%
-           family={Mitchell},
-           familyi={M\bibinitperiod},
-           given={Shira},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=76bc29ab44c7a61e1880f66a38dfd64e}{%
-           family={Potash},
-           familyi={P\bibinitperiod},
-           given={Eric},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=cb55e045fbd37698b0b60a60b567ab83}{%
-           family={Barocas},
-           familyi={B\bibinitperiod},
-           given={Solon},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=6feece63ac4a69ad78dcf486fd29724d}{%
-           family={D'Amour},
-           familyi={D\bibinitperiod},
-           given={Alexander},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d2cbffe56dd5a5ae9a557b3314bc563c}{%
-           family={Lum},
-           familyi={L\bibinitperiod},
-           given={Kristian},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{1d6149d17abdb86a350350a286bda0ea}
-      \strng{fullhash}{6b1b9f0442b8cafba76ade3fa86eb8db}
-      \strng{bibnamehash}{1d6149d17abdb86a350350a286bda0ea}
-      \strng{authorbibnamehash}{1d6149d17abdb86a350350a286bda0ea}
-      \strng{authornamehash}{1d6149d17abdb86a350350a286bda0ea}
-      \strng{authorfullhash}{6b1b9f0442b8cafba76ade3fa86eb8db}
-      \field{sortinit}{M}
-      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Data and discrimination: Collected essays}
-      \field{title}{Algorithmic auditing: Research methods for detecting discrimination on internet platforms}
-      \field{year}{2021}
-      \field{pages}{1\bibrangedash 25}
-      \range{pages}{25}
-    \endentry
-    \entry{rae2021scaling}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{10}{}{%
-        {{un=0,uniquepart=base,hash=8dcdeb16ef3c68cf8396226668804fe0}{%
-           family={Rae},
-           familyi={R\bibinitperiod},
-           given={Jack\bibnamedelima W},
-           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c28d74501d531d6672ccf4c28016c7ac}{%
-           family={Borgeaud},
-           familyi={B\bibinitperiod},
-           given={Sebastian},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3d7a83ed6eb983ca17cec804631dc22e}{%
-           family={Cai},
-           familyi={C\bibinitperiod},
-           given={Trevor},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=da626c813aa81825001015989a23f850}{%
-           family={Millican},
-           familyi={M\bibinitperiod},
-           given={Katie},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=92d226c4ea870c0e9df2ceb8bf03d8ff}{%
-           family={Hoffmann},
-           familyi={H\bibinitperiod},
-           given={Jordan},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d29968c4f8c8036868e40864a92eef46}{%
-           family={Song},
-           familyi={S\bibinitperiod},
-           given={Francis},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e99abbc8dd53e5feeb2a428724ce1d2f}{%
-           family={Aslanides},
-           familyi={A\bibinitperiod},
-           given={John},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2bec5d998e78663ee05eb49d4bae7cc2}{%
-           family={Henderson},
-           familyi={H\bibinitperiod},
-           given={Sarah},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=50349f5d4ef065e417356ee70e0f7069}{%
-           family={Ring},
-           familyi={R\bibinitperiod},
-           given={Roman},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=165a70bb746a853fb4c0b32ff55fe32d}{%
-           family={Young},
-           familyi={Y\bibinitperiod},
-           given={Susannah},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{af1a57cd747585812979b8511d325e39}
-      \strng{fullhash}{16d91ebb00eb012fec5871a0f5cf838d}
-      \strng{bibnamehash}{af1a57cd747585812979b8511d325e39}
-      \strng{authorbibnamehash}{af1a57cd747585812979b8511d325e39}
-      \strng{authornamehash}{af1a57cd747585812979b8511d325e39}
-      \strng{authorfullhash}{16d91ebb00eb012fec5871a0f5cf838d}
-      \field{sortinit}{R}
-      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:2112.11446}
-      \field{title}{Scaling language models: Methods, analysis \& insights from training gopher}
-      \field{year}{2021}
-    \endentry
     \entry{srivastava2022beyond}{article}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -969,88 +625,6 @@
       \field{journaltitle}{arXiv preprint arXiv:2206.04615}
       \field{title}{Beyond the imitation game: Quantifying and extrapolating the capabilities of language models}
       \field{year}{2022}
-    \endentry
-    \entry{winfield2021review}{article}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=a20cce94ebe2c99746d2b6a39d5fb660}{%
-           family={Winfield},
-           familyi={W\bibinitperiod},
-           given={Alan\bibnamedelima FT},
-           giveni={A\bibinitperiod\bibinitdelim F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2e9cc74b13c36fa234d8e91ffabeb048}{%
-           family={Michael},
-           familyi={M\bibinitperiod},
-           given={Katina},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=805989002c82fb79aa6a6bb58ee2231c}{%
-           family={Pitt},
-           familyi={P\bibinitperiod},
-           given={Jeremy},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7087234dddbd41ed9228d50b81ac7fb5}{%
-           family={Evers},
-           familyi={E\bibinitperiod},
-           given={Vanessa},
-           giveni={V\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{c544c46d7a18e062d4cee50dea8e0c90}
-      \strng{fullhash}{9e0e382478687b3f77248b538fec1ddf}
-      \strng{bibnamehash}{c544c46d7a18e062d4cee50dea8e0c90}
-      \strng{authorbibnamehash}{c544c46d7a18e062d4cee50dea8e0c90}
-      \strng{authornamehash}{c544c46d7a18e062d4cee50dea8e0c90}
-      \strng{authorfullhash}{9e0e382478687b3f77248b538fec1ddf}
-      \field{sortinit}{W}
-      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Technology and Society}
-      \field{number}{4}
-      \field{title}{A review of machine ethics}
-      \field{volume}{2}
-      \field{year}{2021}
-      \field{pages}{186\bibrangedash 200}
-      \range{pages}{15}
-    \endentry
-    \entry{zhang2007moea}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=b2e22db866fa79372f07034ed0140d0e}{%
-           family={Zhang},
-           familyi={Z\bibinitperiod},
-           given={Qingfu},
-           giveni={Q\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9b1528d0b6c9bc88bfd8c569f290bcec}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Hui},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{d6c45b45623c221ed6d15e1149395f02}
-      \strng{fullhash}{d6c45b45623c221ed6d15e1149395f02}
-      \strng{bibnamehash}{d6c45b45623c221ed6d15e1149395f02}
-      \strng{authorbibnamehash}{d6c45b45623c221ed6d15e1149395f02}
-      \strng{authornamehash}{d6c45b45623c221ed6d15e1149395f02}
-      \strng{authorfullhash}{d6c45b45623c221ed6d15e1149395f02}
-      \field{sortinit}{Z}
-      \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on evolutionary computation}
-      \field{number}{6}
-      \field{title}{MOEA/D: A multiobjective evolutionary algorithm based on decomposition}
-      \field{volume}{11}
-      \field{year}{2007}
-      \field{pages}{712\bibrangedash 731}
-      \range{pages}{20}
     \endentry
   \enddatalist
 \endrefsection
