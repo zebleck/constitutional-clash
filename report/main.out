@@ -1,0 +1,56 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Problem Statement}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Motivation}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Research Questions}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Contributions and Findings}{section.1}% 5
+\BOOKMARK [1][-]{section.2}{Methodology}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{Constitutional Framework}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Principle Design}{subsection.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.2}{Evaluation and Benchmarking for AI Ethics}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.3}{Prior Work on Principle and Value Conflicts}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.4}{Research Gap and Contribution}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.5}{Constitutional Framework}{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.5.1}{Principle Design}{subsection.2.5}% 13
+\BOOKMARK [2][-]{subsection.2.6}{Conflict Taxonomy}{section.2}% 14
+\BOOKMARK [2][-]{subsection.2.7}{Prompt Generation Pipeline}{section.2}% 15
+\BOOKMARK [3][-]{subsubsection.2.7.1}{Generation Process}{subsection.2.7}% 16
+\BOOKMARK [3][-]{subsubsection.2.7.2}{Quality Control}{subsection.2.7}% 17
+\BOOKMARK [2][-]{subsection.2.8}{Model Selection}{section.2}% 18
+\BOOKMARK [3][-]{subsubsection.2.8.1}{Selected Models}{subsection.2.8}% 19
+\BOOKMARK [2][-]{subsection.2.9}{Evaluation Framework}{section.2}% 20
+\BOOKMARK [3][-]{subsubsection.2.9.1}{Core Metrics}{subsection.2.9}% 21
+\BOOKMARK [3][-]{subsubsection.2.9.2}{Response Pattern Analysis}{subsection.2.9}% 22
+\BOOKMARK [3][-]{subsubsection.2.9.3}{Automated Assessment Process}{subsection.2.9}% 23
+\BOOKMARK [2][-]{subsection.2.10}{Analysis Methods}{section.2}% 24
+\BOOKMARK [1][-]{section.3}{Results}{}% 25
+\BOOKMARK [2][-]{subsection.3.1}{Overall Performance Comparison}{section.3}% 26
+\BOOKMARK [2][-]{subsection.3.2}{Consistency Analysis}{section.3}% 27
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Cross-Model Consistency Patterns}{subsection.3.2}% 28
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Category-Specific Consistency}{subsection.3.2}% 29
+\BOOKMARK [2][-]{subsection.3.3}{Reasoning Quality Patterns}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.4}{Conflict Category Difficulty Analysis}{section.3}% 31
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Most Challenging Categories}{subsection.3.4}% 32
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Most Manageable Categories}{subsection.3.4}% 33
+\BOOKMARK [2][-]{subsection.3.5}{Principle Pair Challenges}{section.3}% 34
+\BOOKMARK [2][-]{subsection.3.6}{Refusal Rate Analysis}{section.3}% 35
+\BOOKMARK [3][-]{subsubsection.3.6.1}{Cross-Model Refusal Patterns}{subsection.3.6}% 36
+\BOOKMARK [3][-]{subsubsection.3.6.2}{Category-Specific Refusal Patterns}{subsection.3.6}% 37
+\BOOKMARK [2][-]{subsection.3.7}{Statistical Significance Testing}{section.3}% 38
+\BOOKMARK [2][-]{subsection.3.8}{Summary of Key Findings}{section.3}% 39
+\BOOKMARK [1][-]{section.4}{Analysis \046 Discussion}{}% 40
+\BOOKMARK [2][-]{subsection.4.1}{The Consistency-Quality Trade-off}{section.4}% 41
+\BOOKMARK [2][-]{subsection.4.2}{Emergence of Hidden Value Hierarchies}{section.4}% 42
+\BOOKMARK [2][-]{subsection.4.3}{Category-Dependent Vulnerability Patterns}{section.4}% 43
+\BOOKMARK [2][-]{subsection.4.4}{Constitutional Training Limitations}{section.4}% 44
+\BOOKMARK [2][-]{subsection.4.5}{Model-Specific Strategic Patterns}{section.4}% 45
+\BOOKMARK [2][-]{subsection.4.6}{Implications for AI Safety and Alignment}{section.4}% 46
+\BOOKMARK [2][-]{subsection.4.7}{Limitations and Scope}{section.4}% 47
+\BOOKMARK [2][-]{subsection.4.8}{Future Research Directions}{section.4}% 48
+\BOOKMARK [2][-]{subsection.4.9}{Broader Significance}{section.4}% 49
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 50
+\BOOKMARK [2][-]{subsection.5.1}{Key Contributions}{section.5}% 51
+\BOOKMARK [2][-]{subsection.5.2}{Principal Findings}{section.5}% 52
+\BOOKMARK [2][-]{subsection.5.3}{Implications for AI Safety and Responsible Development}{section.5}% 53
+\BOOKMARK [2][-]{subsection.5.4}{Limitations and Scope}{section.5}% 54
+\BOOKMARK [2][-]{subsection.5.5}{Future Research Priorities}{section.5}% 55
+\BOOKMARK [2][-]{subsection.5.6}{Closing Statement}{section.5}% 56
