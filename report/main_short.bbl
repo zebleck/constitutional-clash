@@ -1,0 +1,106 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{anthropic2022constitutional}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=9bf1729ae263e793ab902ed7fe6678da}{%
+           family={Bai},
+           familyi={B\bibinitperiod},
+           given={Yuntao},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4834252d19dbdb48ed66407dc5031d6e}{%
+           family={Kadavath},
+           familyi={K\bibinitperiod},
+           given={Saurabh},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=22f5b9594fb5e4b60682b792befc3a35}{%
+           family={Kundu},
+           familyi={K\bibinitperiod},
+           given={Sandipan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1e84eff933be9f4887bf369cf181bf12}{%
+           family={Askell},
+           familyi={A\bibinitperiod},
+           given={Amanda},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c9c0e77cb49ab32e0fbcd8d4b0ea104e}{%
+           family={Kernion},
+           familyi={K\bibinitperiod},
+           given={Jackson},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5028535158c772bff71c0631f7cce8f4}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Andy},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=341ab75f3c30fad8766efdae7461653f}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=71e28c63b0d6db49d4dbfc0c864eb169}{%
+           family={Goldie},
+           familyi={G\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fbd2f0ec383a2ff63d89cf287c3a4ddb}{%
+           family={Mirhoseini},
+           familyi={M\bibinitperiod},
+           given={Azalia},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a97498e84c41e17cbf0922e8c502706}{%
+           family={McKinnon},
+           familyi={M\bibinitperiod},
+           given={Cameron},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{68a232b71f6c92d764e1477740607b54}
+      \strng{fullhash}{0dc4dd661624469bdcf9df35031a6edb}
+      \strng{bibnamehash}{68a232b71f6c92d764e1477740607b54}
+      \strng{authorbibnamehash}{68a232b71f6c92d764e1477740607b54}
+      \strng{authornamehash}{68a232b71f6c92d764e1477740607b54}
+      \strng{authorfullhash}{0dc4dd661624469bdcf9df35031a6edb}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2212.08073}
+      \field{title}{Constitutional AI: Harmlessness from AI feedback}
+      \field{year}{2022}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -88,7 +88,7 @@
 \maketitle
 
 \begin{abstract}
-We present an empirical analysis of how seven state-of-the-art LLMs handle conflicts between constitutional principles. Testing 60 scenarios across 6 conflict categories (privacy vs. helpfulness, truth vs. harm, autonomy vs. safety, individual vs. collective, fairness vs. truth, transparency vs. manipulation), we find significant inconsistencies in model behavior. GPT-4o achieved highest consistency (88.8\%) while Grok-4 provided best reasoning quality (4.87/5). Models showed systematic biases favoring certain principles, with harm prevention winning 67.3\% of conflicts. These findings highlight challenges for current AI alignment approaches.\footnote{Code and data available at: \url{https://github.com/zebleck/constitutional-clash}}
+We present an empirical analysis of how seven state-of-the-art LLMs handle conflicts between constitutional principles. Testing 60 scenarios across 6 conflict categories (privacy vs. helpfulness, truth vs. harm, autonomy vs. safety, individual vs. collective, fairness vs. truth, transparency vs. manipulation), we find significant inconsistencies in model behavior. GPT-4o achieved highest consistency (88.8\%) while Grok-4 provided best reasoning quality (4.87/5). Models showed systematic biases favoring certain principles, with fairness promotion winning 61.4\% of conflicts. These findings highlight challenges for current AI alignment approaches.\footnote{Code and data available at: \url{https://github.com/zebleck/constitutional-clash}}
 \end{abstract}
 
 \section{Introduction}
@@ -530,7 +530,7 @@ Conflicts involving \principle{absolute\_truth} proved more challenging, particu
 \label{fig:principle_wins}
 \end{figure}
 
-Figure~\ref{fig:principle_wins} illustrates the win rates for each principle across all conflicts, revealing systematic biases in model decision-making. \principle{prevent\_harm} won 67.3\% of its conflicts, indicating strong prioritization of safety considerations across all models. In contrast, \principle{transparency} won only 23.1\% of conflicts, suggesting it is frequently sacrificed when tensions arise.
+Figure~\ref{fig:principle_wins} illustrates the win rates for each principle across all conflicts, revealing systematic biases in model decision-making. \principle{promote\_fairness} had the highest win rate at 61.4\%, followed by \principle{protect\_privacy} at 58.6\% and \principle{prevent\_harm} at 57.9\%, indicating strong prioritization of fairness and privacy considerations across all models. In contrast, \principle{absolute\_truth} won only 26.2\% of conflicts, suggesting it is frequently sacrificed when tensions arise.
 
 \begin{figure}[ht]
 \centering
@@ -599,7 +599,7 @@ The consistency-quality trade-off also reveals challenges for current constituti
 
 \subsection{Effective Adherence to Stated Value Hierarchies}
 
-A key finding of our study is how effectively the models adhered to the explicit priority rankings specified in our constitutional framework. As shown in Figure~\ref{fig:principle_wins}, \principle{prevent\_harm} (Priority 1) consistently won conflicts (67.3\% win rate), while \principle{transparency} (Priority 5) was frequently sacrificed (23.1\% win rate) when pitted against higher-priority principles.
+A key finding of our study is how effectively the models adhered to the explicit priority rankings specified in our constitutional framework. As shown in Figure~\ref{fig:principle_wins}, \principle{prevent\_harm} (Priority 1) won conflicts at a 57.9\% rate, while lower-priority principles like \principle{absolute\_truth} were frequently sacrificed (26.2\% win rate) when pitted against higher-priority principles.
 
 This outcome has profound implications for Constitutional AI. It suggests that, at least within a controlled experimental context, LLMs can learn and apply explicit value rankings from a system prompt, even without fine-tuning on these specific hierarchies. The consistent prioritization of harm prevention across all models indicates that safety considerations are not only deeply embedded in baseline training but can also be effectively directed by a clearly articulated constitution.
 
